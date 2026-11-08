@@ -1,0 +1,47 @@
+"""
+RR ScoutIQ — Configuration Package
+"""
+
+from .settings import (
+    PROJECT_NAME,
+    FULL_NAME,
+    COMPETITION,
+    DEADLINE,
+    APP_VERSION,
+    PROJECT_ROOT,
+    DATA_DIR,
+    RAW_DATA_DIR,
+    INTERIM_DATA_DIR,
+    PROCESSED_DATA_DIR,
+    REFERENCE_DATA_DIR,
+    ARTIFACTS_DIR,
+    FIGURES_DIR,
+    REPORTS_DIR,
+    MODEL_OUTPUTS_DIR,
+    SRC_DIR,
+    DASHBOARD_DIR,
+    TESTS_DIR,
+    REQUIRED_DIRECTORIES,
+)
+
+__all__ = [
+    "PROJECT_NAME",
+    "FULL_NAME",
+    "COMPETITION",
+    "DEADLINE",
+    "APP_VERSION",
+    "PROJECT_ROOT",
+    "DATA_DIR",
+    "RAW_DATA_DIR",
+    "INTERIM_DATA_DIR",
+    "PROCESSED_DATA_DIR",
+    "REFERENCE_DATA_DIR",
+    "ARTIFACTS_DIR",
+    "FIGURES_DIR",
+    "REPORTS_DIR",
+    "MODEL_OUTPUTS_DIR",
+    "SRC_DIR",
+    "DASHBOARD_DIR",
+    "TESTS_DIR",
+    "REQUIRED_DIRECTORIES",
+]

@@ -1,0 +1,31 @@
+# RR ScoutIQ — Dependencies Specification
+# Target Python Version: >=3.12
+
+# Interactive Dashboard Framework
+streamlit>=1.35.0
+
+# Core Data Engineering & Columnar Storage
+pandas>=2.2.0
+numpy>=1.26.0
+duckdb>=1.0.0
+pyarrow>=16.0.0
+pandera>=0.20.0
+
+# Statistical Modeling & Machine Learning
+scipy>=1.13.0
+statsmodels>=0.14.0
+scikit-learn>=1.5.0
+
+# Visualization
+plotly>=5.22.0
+
+# Export, Reporting & Dossiers
+openpyxl>=3.1.2
+xlsxwriter>=3.2.0
+reportlab>=4.2.0
+
+# Environment & Settings
+python-dotenv>=1.0.1
+
+# Quality Assurance & Testing
+pytest>=8.2.0

@@ -1,0 +1,94 @@
+# ==============================================================================
+# RR ScoutIQ — Git Ignore Rules & Data Security Policy
+# ==============================================================================
+# IMPORTANT: Never commit Rajasthan Royals proprietary datasets or credentials.
+# ==============================================================================
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Bytecode & Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Secrets, Credentials, and Local Configurations
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.secret
+credentials/
+secrets/
+
+# Proprietary Cricket Data (Raw, Interim, Processed)
+# Strictly ensure no proprietary ball-by-ball or internal scouting datasets are tracked
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Database Files
+*.duckdb
+*.duckdb.wal
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated Artifacts & Reports (Keep directory structure intact via .gitkeep)
+artifacts/figures/*
+!artifacts/figures/.gitkeep
+artifacts/reports/*
+!artifacts/reports/.gitkeep
+artifacts/model_outputs/*
+!artifacts/model_outputs/.gitkeep
+
+# Testing & Cache Files
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.ruff_cache/
+.mypy_cache/
+
+# Temporary Files & Logs
+*.tmp
+*.temp
+*.log
+logs/
+
+# Operating System & IDE Specific
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
