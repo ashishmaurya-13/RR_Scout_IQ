@@ -24,12 +24,13 @@ ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
 # Data Directories
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
+RAW_EXTRACTED_DIR = RAW_DATA_DIR / "extracted"
 INTERIM_DATA_DIR = DATA_DIR / "interim"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 REFERENCE_DATA_DIR = DATA_DIR / "reference"
 
 # Database Configuration
-DUCKDB_PATH = PROJECT_ROOT / os.getenv("DUCKDB_PATH", "data/scout_iq.duckdb")
+DUCKDB_PATH = Path(os.getenv("DUCKDB_PATH", str(INTERIM_DATA_DIR / "scout_iq.duckdb")))
 
 # Artifact Directories
 ARTIFACTS_DIR = PROJECT_ROOT / "artifacts"

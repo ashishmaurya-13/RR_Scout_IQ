@@ -43,6 +43,7 @@ wheels/
 *.secret
 credentials/
 secrets/
+.streamlit/credentials.toml
 
 # Proprietary Cricket Data (Raw, Interim, Processed)
 # Strictly ensure no proprietary ball-by-ball or internal scouting datasets are tracked

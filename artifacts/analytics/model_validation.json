@@ -1,0 +1,178 @@
+{
+  "model_metadata": {
+    "model_name": "RR ScoutIQ Audited Bayesian Pressure Architecture",
+    "version": "2.1.0",
+    "calibration_date": "2026-11-15",
+    "total_deliveries_scored": 200896,
+    "unrecorded_dls_excluded_deliveries": 103,
+    "half_reliability_n0": 45.0,
+    "primary_scope": "IPL Only",
+    "supplementary_scope": "All T20"
+  },
+  "population_parameters": {
+    "ipl_high_pressure_batting_sr": 147.19,
+    "ipl_high_pressure_bowling_econ": 9.28,
+    "ipl_high_pressure_wicket_pct": 6.43,
+    "all_high_pressure_batting_sr": 137.3,
+    "all_high_pressure_bowling_econ": 8.65
+  },
+  "top_10_batters_ipl_summary": [
+    {
+      "rank": 1,
+      "name": "Liam Livingstone",
+      "score": 64.25,
+      "pressure_sr": 195.92,
+      "balls": 147
+    },
+    {
+      "rank": 2,
+      "name": "Shreyas Iyer",
+      "score": 63.72,
+      "pressure_sr": 205.15,
+      "balls": 97
+    },
+    {
+      "rank": 3,
+      "name": "Naman Dhir",
+      "score": 62.72,
+      "pressure_sr": 206.19,
+      "balls": 97
+    },
+    {
+      "rank": 4,
+      "name": "Rinku Singh",
+      "score": 62.49,
+      "pressure_sr": 173.62,
+      "balls": 345
+    },
+    {
+      "rank": 5,
+      "name": "Sanju Samson",
+      "score": 61.96,
+      "pressure_sr": 191.38,
+      "balls": 116
+    },
+    {
+      "rank": 6,
+      "name": "Jos Buttler",
+      "score": 61.91,
+      "pressure_sr": 187.0,
+      "balls": 100
+    },
+    {
+      "rank": 7,
+      "name": "David Miller",
+      "score": 61.6,
+      "pressure_sr": 176.38,
+      "balls": 309
+    },
+    {
+      "rank": 8,
+      "name": "Nicholas Pooran",
+      "score": 61.24,
+      "pressure_sr": 184.64,
+      "balls": 267
+    },
+    {
+      "rank": 9,
+      "name": "Tim David",
+      "score": 61.21,
+      "pressure_sr": 187.65,
+      "balls": 332
+    },
+    {
+      "rank": 10,
+      "name": "Dinesh Karthik",
+      "score": 60.79,
+      "pressure_sr": 186.53,
+      "balls": 193
+    }
+  ],
+  "top_10_bowlers_ipl_summary": [
+    {
+      "rank": 1,
+      "name": "Sunil Narine",
+      "score": 63.01,
+      "pressure_econ": 5.57,
+      "balls": 282,
+      "wkts": 23
+    },
+    {
+      "rank": 2,
+      "name": "Umran Malik",
+      "score": 62.16,
+      "pressure_econ": 7.04,
+      "balls": 81,
+      "wkts": 10
+    },
+    {
+      "rank": 3,
+      "name": "Jasprit Bumrah",
+      "score": 58.69,
+      "pressure_econ": 6.62,
+      "balls": 241,
+      "wkts": 18
+    },
+    {
+      "rank": 4,
+      "name": "Mitchell Santner",
+      "score": 58.65,
+      "pressure_econ": 5.34,
+      "balls": 100,
+      "wkts": 5
+    },
+    {
+      "rank": 5,
+      "name": "Varun Chakravarthy",
+      "score": 57.87,
+      "pressure_econ": 7.62,
+      "balls": 341,
+      "wkts": 26
+    },
+    {
+      "rank": 6,
+      "name": "Eshan Malinga",
+      "score": 57.8,
+      "pressure_econ": 7.77,
+      "balls": 146,
+      "wkts": 16
+    },
+    {
+      "rank": 7,
+      "name": "Yuzvendra Chahal",
+      "score": 56.95,
+      "pressure_econ": 8.05,
+      "balls": 380,
+      "wkts": 40
+    },
+    {
+      "rank": 8,
+      "name": "Anshul Kamboj",
+      "score": 56.89,
+      "pressure_econ": 8.08,
+      "balls": 78,
+      "wkts": 8
+    },
+    {
+      "rank": 9,
+      "name": "Matheesha Pathirana",
+      "score": 56.43,
+      "pressure_econ": 7.84,
+      "balls": 293,
+      "wkts": 26
+    },
+    {
+      "rank": 10,
+      "name": "Mohammed Shami",
+      "score": 56.02,
+      "pressure_econ": 7.92,
+      "balls": 153,
+      "wkts": 14
+    }
+  ],
+  "stability_metrics": {
+    "rank_1_ipl_batter": "Liam Livingstone",
+    "rank_1_ipl_bowler": "Sunil Narine",
+    "scenarios_tested": 7
+  }
+}

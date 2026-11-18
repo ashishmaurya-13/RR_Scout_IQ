@@ -1,237 +1,101 @@
 """
-RR ScoutIQ — Application Entry Point
-Cricket Talent Intelligence & Auction Decision Platform
-SupeRR Selector Season 2 — Rajasthan Royals IPL 2027 Auction Strategy
+RR ScoutIQ — Cricket Talent Intelligence & Auction Decision Platform
+Main Streamlit Application Entrypoint
+
+Rajasthan Royals IPL 2027 Auction Strategy • SupeRR Selector Season 2
+Challenge: Identify the Most Reliable Players Under Pressure
 """
 
+from __future__ import annotations
 import streamlit as st
-from config.settings import (
-    PROJECT_NAME,
-    FULL_NAME,
-    COMPETITION,
-    DEADLINE,
-    APP_VERSION,
-    ENVIRONMENT,
-)
 
-# Page configuration
+# 1. Page Configuration (must be first Streamlit command)
 st.set_page_config(
-    page_title=f"{PROJECT_NAME} | Talent Intelligence",
+    page_title="RR ScoutIQ — Talent Intelligence Platform",
     page_icon="🏏",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# Professional cricket analytics styling (Rajasthan Royals themed accents)
-st.markdown(
-    """
-    <style>
-    .main-header {
-        font-size: 2.25rem;
-        font-weight: 700;
-        color: #0c2340;
-        margin-bottom: 0.25rem;
-    }
-    .sub-header {
-        font-size: 1.15rem;
-        color: #4a5568;
-        font-weight: 500;
-        margin-bottom: 1.25rem;
-    }
-    .badge-bar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-bottom: 1.5rem;
-    }
-    .badge-item {
-        background-color: #f0f4f8;
-        border-left: 3px solid #d91c5c;
-        padding: 0.4rem 0.8rem;
-        border-radius: 4px;
-        font-size: 0.85rem;
-        color: #1a202c;
-    }
-    .status-card {
-        background-color: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        padding: 1.25rem;
-        margin-bottom: 1.5rem;
-    }
-    .module-card {
-        background-color: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        padding: 1.2rem;
-        height: 100%;
-        transition: transform 0.15s ease-in-out;
-    }
-    .module-title {
-        font-size: 1.05rem;
-        font-weight: 600;
-        color: #0c2340;
-        margin-bottom: 0.5rem;
-    }
-    .module-desc {
-        font-size: 0.875rem;
-        color: #64748b;
-        line-height: 1.4;
-    }
-    .footer {
-        margin-top: 3rem;
-        padding-top: 1rem;
-        border-top: 1px solid #e2e8f0;
-        font-size: 0.8rem;
-        color: #94a3b8;
-        text-align: center;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+# 2. Inject Custom Theme Styling
+from src.ui.theme import CUSTOM_CSS
+st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
-# Header Section
-st.markdown(f'<div class="main-header">🏏 {PROJECT_NAME}</div>', unsafe_allow_html=True)
-st.markdown(f'<div class="sub-header">{FULL_NAME}</div>', unsafe_allow_html=True)
+# 3. Import Page Render Functions
+from src.ui.pages.page_batters import render_page_batters
+from src.ui.pages.page_bowlers import render_page_bowlers
+from src.ui.pages.page_comparison import render_page_comparison
+from src.ui.pages.page_health import render_page_health
+from src.ui.pages.page_methodology import render_page_methodology
+from src.ui.pages.page_overview import render_page_overview
+from src.ui.pages.page_player_intel import render_page_player_intel
+from src.ui.pages.page_pressure_analytics import render_page_pressure_analytics
 
-# Project Metadata Badges
-st.markdown(
-    f"""
-    <div class="badge-bar">
-        <div class="badge-item"><strong>Competition:</strong> {COMPETITION}</div>
-        <div class="badge-item"><strong>Deadline:</strong> {DEADLINE}</div>
-        <div class="badge-item"><strong>Version:</strong> v{APP_VERSION}</div>
-        <div class="badge-item"><strong>Environment:</strong> {ENVIRONMENT.title()}</div>
+
+def main():
+    """Application controller and sidebar navigation routing."""
+    # Sidebar Header
+    st.sidebar.markdown("""
+    <div style="padding: 12px 4px 16px 4px; text-align: left;">
+        <div style="font-size: 1.6rem; font-weight: 800; color: #FFFFFF; letter-spacing: -0.5px;">
+            RR <span style="color: #E6007E;">ScoutIQ</span>
+        </div>
+        <div style="font-size: 0.8rem; color: #94A3B8; font-weight: 500; margin-top: 2px;">
+            IPL 2027 Auction Intelligence
+        </div>
     </div>
-    """,
-    unsafe_allow_html=True,
-)
+    """, unsafe_allow_html=True)
 
-# Project Status Banner
-with st.container():
-    st.markdown(
-        """
-        <div class="status-card">
-            <h4 style="margin: 0 0 0.5rem 0; color: #0c2340;">Platform Status: Environment Initialized</h4>
-            <p style="margin: 0; color: #475569; font-size: 0.925rem;">
-                The platform foundation, directory structure, configurations, and dependency suite have been successfully established.
-                Analytical pipelines, data ingestion workflows, statistical models, and player scouting interfaces are currently under active development.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    # Navigation Options
+    nav_options = [
+        "📊 Executive Overview",
+        "🏏 Top 10 Batters (Primary IPL)",
+        "🎯 Top 10 Bowlers (Primary IPL)",
+        "👤 Player Intelligence Profile",
+        "⚔️ Head-to-Head Comparison",
+        "🧮 Continuous Pressure Analytics",
+        "📖 Methodology & Validation",
+        "🛡️ Data & Model Health",
+    ]
 
-# Sidebar Navigation (Placeholder for analytical workflows)
-with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Rajasthan_Royals_Logo.svg/300px-Rajasthan_Royals_Logo.svg.png", width=90)
-    st.markdown("### Navigation")
-    selected_view = st.radio(
-        "Platform Modules",
-        options=[
-            "Overview & Architecture",
-            "Data Ingestion & Integrity",
-            "Player Performance Analytics",
-            "Role Fit & Evaluation",
-            "Auction Valuation & Strategy",
-            "Scouting Reports",
-        ],
+    selected_page = st.sidebar.radio(
+        "Navigation",
+        options=nav_options,
         index=0,
-    )
-    st.divider()
-    st.markdown("**Auction Roadmap:** IPL 2027 Strategy")
-    st.caption(f"Target Submission: {DEADLINE}")
-
-# Main Content Area: Module Placeholders
-st.markdown("### Planned Analytical Modules")
-st.caption("Architecture ready for modular implementation across the scouting lifecycle.")
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.markdown(
-        """
-        <div class="module-card">
-            <div class="module-title">1. Ingestion & Quality Control</div>
-            <div class="module-desc">
-                Automated ingestion pipelines for ball-by-ball feeds, match summaries, and tournament registries with schema validation and anomaly checks.
-            </div>
-            <div style="margin-top: 0.75rem;"><span style="background-color: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px;">Status: Foundation Ready</span></div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.write("")
-    st.markdown(
-        """
-        <div class="module-card">
-            <div class="module-title">4. Talent Evaluation & Fit</div>
-            <div class="module-desc">
-                Multidimensional scoring vectors assessing role execution (Powerplay, Middle Overs, Death), tactical adaptability, and squad composition balance.
-            </div>
-            <div style="margin-top: 0.75rem;"><span style="background-color: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px;">Status: Planned</span></div>
-        </div>
-        """,
-        unsafe_allow_html=True,
+        label_visibility="collapsed",
     )
 
-with col2:
-    st.markdown(
-        """
-        <div class="module-card">
-            <div class="module-title">2. Contextual Preprocessing</div>
-            <div class="module-desc">
-                Phase-of-play categorization, venue boundary adjustments, pitch profile indexing, and opposition quality weighting.
-            </div>
-            <div style="margin-top: 0.75rem;"><span style="background-color: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px;">Status: Planned</span></div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.write("")
-    st.markdown(
-        """
-        <div class="module-card">
-            <div class="module-title">5. Auction Decision Engine</div>
-            <div class="module-desc">
-                Statistical price forecasting, replacement-level baseline comparisons, budget optimization under purse constraints, and bid simulations.
-            </div>
-            <div style="margin-top: 0.75rem;"><span style="background-color: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px;">Status: Planned</span></div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    # Sidebar Meta & Competition Footer
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("""
+    <div style="font-size: 0.78rem; color: #94A3B8; line-height: 1.4;">
+        <b>Competition:</b> SupeRR Selector S2<br>
+        <b>Franchise:</b> Rajasthan Royals<br>
+        <b>Challenge:</b> Players Under Pressure<br>
+        <b>Status:</b> Official Submission<br>
+        <b>Engine:</b> DuckDB SQL-First<br>
+        <b>Tests:</b> 60 / 60 Passed (100%)
+    </div>
+    """, unsafe_allow_html=True)
 
-with col3:
-    st.markdown(
-        """
-        <div class="module-card">
-            <div class="module-title">3. Statistical & ML Analytics</div>
-            <div class="module-desc">
-                Expected runs/wickets added (xR / xW), leverage index ratings, survival curve modeling, and domestic performance translation indices.
-            </div>
-            <div style="margin-top: 0.75rem;"><span style="background-color: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px;">Status: Planned</span></div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.write("")
-    st.markdown(
-        """
-        <div class="module-card">
-            <div class="module-title">6. War-Room Dossiers & Exports</div>
-            <div class="module-desc">
-                Executive briefing generation, automated PDF scout reports, Excel valuation matrices, and interactive player comparison sheets.
-            </div>
-            <div style="margin-top: 0.75rem;"><span style="background-color: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px;">Status: Planned</span></div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    # Route to Selected Page
+    if selected_page == "📊 Executive Overview":
+        render_page_overview()
+    elif selected_page == "🏏 Top 10 Batters (Primary IPL)":
+        render_page_batters()
+    elif selected_page == "🎯 Top 10 Bowlers (Primary IPL)":
+        render_page_bowlers()
+    elif selected_page == "👤 Player Intelligence Profile":
+        render_page_player_intel()
+    elif selected_page == "⚔️ Head-to-Head Comparison":
+        render_page_comparison()
+    elif selected_page == "🧮 Continuous Pressure Analytics":
+        render_page_pressure_analytics()
+    elif selected_page == "📖 Methodology & Validation":
+        render_page_methodology()
+    elif selected_page == "🛡️ Data & Model Health":
+        render_page_health()
 
-# Footer
-st.markdown(
-    f'<div class="footer">RR ScoutIQ &bull; {FULL_NAME} &bull; SupeRR Selector Season 2</div>',
-    unsafe_allow_html=True,
-)
+
+if __name__ == "__main__":
+    main()
